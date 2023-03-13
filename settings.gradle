@@ -16,3 +16,4 @@ rootProject.name = "FJ2023"
 include ':app'
 include ':support'
 include ':annotation'
+include ':service'
