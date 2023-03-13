@@ -9,6 +9,5 @@
 ## 自定义注解
 
 ## 参考文献
-
-[Android基础系列篇（一）：注解的那些事儿]: https://zhuanlan.zhihu.com/p/575272303
+* [Android基础系列篇（一）：注解的那些事儿](https://zhuanlan.zhihu.com/p/575272303 )
 
