@@ -10,6 +10,7 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 
 import com.vangelis.annotation.AnnotationMainActivity;
+import com.vangelis.service.ServiceMainActivity;
 
 /**
  * Function: #todo
@@ -20,6 +21,7 @@ import com.vangelis.annotation.AnnotationMainActivity;
 public class MainActivity extends Activity implements View.OnClickListener {
 
     private Button mAnnotation;
+    private Button mService;
 
 
     @Override
@@ -28,7 +30,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.main_layout);
 
         mAnnotation = findViewById(R.id.button_annotation);
+        mService = findViewById(R.id.button_service);
         mAnnotation.setOnClickListener(this);
+        mService.setOnClickListener(this);
     }
 
     @Override
@@ -36,6 +40,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         switch (view.getId()){
             case R.id.button_annotation:
                 startActivity(new Intent(this, AnnotationMainActivity.class));
+                break;
+            case R.id.button_service:
+                startActivity(new Intent(this, ServiceMainActivity.class));
                 break;
             default:
         }
