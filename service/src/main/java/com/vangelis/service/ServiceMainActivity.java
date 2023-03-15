@@ -6,11 +6,16 @@ import android.content.ServiceConnection;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.RemoteException;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.vangelis.service.aidl.IProcessInfo;
+import com.vangelis.service.aidl.MyRemoteService;
+import com.vangelis.service.service.MyIntentService;
+import com.vangelis.service.service.MyTest1Service;
 import com.vangelis.support.util.FjLogUtil;
 
 
@@ -31,8 +36,10 @@ public class ServiceMainActivity extends AppCompatActivity implements View.OnCli
     private Button mUnBindService;
     private Button mStartIntentService;
     private Button mBindIntentService;
+    private Button mBindRemoteService;
 
     private ServiceConnection mServiceConnection;
+    private ServiceConnection mRemoteServiceConnection;
 
     /**
      * 这个继承纸Binder，可以在service中的OnBind回调中传输数据给绑定组件
@@ -54,6 +61,7 @@ public class ServiceMainActivity extends AppCompatActivity implements View.OnCli
         mUnBindService = findViewById(R.id.unBindService);
         mStartIntentService = findViewById(R.id.startIntentService);
         mBindIntentService = findViewById(R.id.bindIntentService);
+        mBindRemoteService = findViewById(R.id.bindRemoteService);
 
         mStartService.setOnClickListener(this);
         mStopService.setOnClickListener(this);
@@ -61,6 +69,7 @@ public class ServiceMainActivity extends AppCompatActivity implements View.OnCli
         mUnBindService.setOnClickListener(this);
         mStartIntentService.setOnClickListener(this);
         mBindIntentService.setOnClickListener(this);
+        mBindRemoteService.setOnClickListener(this);
 
         mServiceConnection = new ServiceConnection(){
 
@@ -84,6 +93,23 @@ public class ServiceMainActivity extends AppCompatActivity implements View.OnCli
                 FjLogUtil.getInstance().d("onServiceDisconnected componentName:"+componentName);
             }
         };
+
+        mRemoteServiceConnection = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                IProcessInfo processInfo = IProcessInfo.Stub.asInterface(iBinder);
+                try {
+                    FjLogUtil.getInstance().d("mRemoteServiceConnection myBinder msg:"+processInfo.getProcessMsg());
+                } catch (RemoteException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName componentName) {
+                FjLogUtil.getInstance().d("mRemoteServiceConnection onServiceDisconnected");
+            }
+        };
     }
 
     @Override
@@ -105,10 +131,12 @@ public class ServiceMainActivity extends AppCompatActivity implements View.OnCli
              */
             unbindService(mServiceConnection);
         }else if(id == R.id.startIntentService){
-            startService(new Intent(this,MyIntentService.class));
+            startService(new Intent(this, MyIntentService.class));
         }else if(id == R.id.bindIntentService){
             Intent intent = new Intent(this, MyIntentService.class);
             bindService(intent,mServiceConnection,BIND_AUTO_CREATE);
+        }else if(id == R.id.bindRemoteService){
+            bindService(new Intent(this, MyRemoteService.class),mRemoteServiceConnection,BIND_AUTO_CREATE);
         }
     }
 }

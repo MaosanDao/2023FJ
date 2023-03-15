@@ -1,4 +1,4 @@
-package com.vangelis.service;
+package com.vangelis.service.service;
 
 import android.app.Service;
 import android.content.Intent;
@@ -6,6 +6,7 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
+import com.vangelis.service.ServiceMainActivity;
 import com.vangelis.support.util.FjLogUtil;
 
 /**

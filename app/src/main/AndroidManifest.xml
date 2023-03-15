@@ -22,8 +22,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
+        <service android:name=".aidl.MyRemoteService" android:process=":MyAppProcessName"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.vangelis.app.service.fj2023"/>
+            </intent-filter>
+        </service>
 
     </application>
 

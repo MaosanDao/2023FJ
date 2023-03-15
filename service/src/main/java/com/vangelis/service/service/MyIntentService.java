@@ -1,4 +1,4 @@
-package com.vangelis.service;
+package com.vangelis.service.service;
 
 import android.app.IntentService;
 import android.content.Intent;

@@ -4,8 +4,13 @@
         <activity android:name=".ServiceMainActivity"
             android:screenOrientation="portrait"/>
 
-        <service android:name=".MyTest1Service"/>
-
-        <service android:name=".MyIntentService"/>
+        <service android:name=".service.MyTest1Service"/>
+        <service android:name=".service.MyIntentService"/>
+        <service android:name=".aidl.MyRemoteService" android:process=":MyTestProcessName"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.vangelis.app.service.service"/>
+            </intent-filter>
+        </service>
     </application>
 </manifest>
