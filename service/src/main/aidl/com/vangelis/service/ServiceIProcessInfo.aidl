@@ -1,13 +1,9 @@
-// IProcessInfo.aidl
-package com.vangelis.service.aidl;
+// ServiceIProcessInfo.aidl
+package com.vangelis.service;
 
 // Declare any non-default types here with import statements
 
-/**
-* 这个直接从AS中新建即可
-*
-*/
-interface IProcessInfo {
+interface ServiceIProcessInfo {
     //定义传输的方法以及内容
     String getProcessMsg();
 }

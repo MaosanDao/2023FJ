@@ -12,7 +12,6 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.vangelis.service.aidl.IProcessInfo;
 import com.vangelis.service.aidl.MyRemoteService;
 import com.vangelis.service.service.MyIntentService;
 import com.vangelis.service.service.MyTest1Service;
@@ -97,7 +96,7 @@ public class ServiceMainActivity extends AppCompatActivity implements View.OnCli
         mRemoteServiceConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                IProcessInfo processInfo = IProcessInfo.Stub.asInterface(iBinder);
+                ServiceIProcessInfo processInfo = ServiceIProcessInfo.Stub.asInterface(iBinder);
                 try {
                     FjLogUtil.getInstance().d("mRemoteServiceConnection myBinder msg:"+processInfo.getProcessMsg());
                 } catch (RemoteException e) {

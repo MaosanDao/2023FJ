@@ -2,6 +2,8 @@ package com.vangelis.service.aidl;
 
 import android.os.RemoteException;
 
+import com.vangelis.service.ServiceIProcessInfo;
+
 /**
  * Function：AIDL实现
  * Created on 2023/3/15.
@@ -10,7 +12,7 @@ import android.os.RemoteException;
  *
  * @author Wangpei
  */
-public class IProcessInfoImpl extends IProcessInfo.Stub{
+public class IProcessInfoImpl extends ServiceIProcessInfo.Stub {
     @Override
     public String getProcessMsg() throws RemoteException {
         return "这个是远程service给的值";

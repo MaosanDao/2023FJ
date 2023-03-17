@@ -6,8 +6,6 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
-import com.vangelis.support.util.FjLogUtil;
-
 
 /**
  * Function：/
@@ -20,8 +18,6 @@ public class MyRemoteService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        IProcessInfoImpl iProcessInfo = new IProcessInfoImpl();
-        FjLogUtil.getInstance().d("MyRemoteService onBind");
-        return iProcessInfo;
+        return new IProcessInfoImpl();
     }
 }

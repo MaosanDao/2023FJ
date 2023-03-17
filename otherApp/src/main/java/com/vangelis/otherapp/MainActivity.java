@@ -11,8 +11,11 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.vangelis.service.aidl.IProcessInfo;
+import com.vangelis.fj2023.IProcessInfo;
+import com.vangelis.fj2023.User;
 import com.vangelis.support.util.FjLogUtil;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,7 +58,12 @@ public class MainActivity extends AppCompatActivity {
                  */
                 IProcessInfo iProcessInfo = IProcessInfo.Stub.asInterface(iBinder);
                 try {
-                    FjLogUtil.getInstance().d("这是另外一个APP，我从其他APP获取的消息为："+iProcessInfo.getProcessMsg());
+                    FjLogUtil.getInstance().d("otherApp，我从app获取的消息为："+iProcessInfo.getProcessMsg());
+
+                    List<User> result = iProcessInfo.getUsers();
+                    for (User user : result) {
+                        FjLogUtil.getInstance().d("otherApp，我从app获取的消息为："+user.toString());
+                    }
                 } catch (RemoteException e) {
                     throw new RuntimeException(e);
                 }
