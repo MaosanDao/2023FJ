@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
@@ -13,6 +14,9 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.vangelis.service.aidl.MyRemoteService;
+import com.vangelis.service.foreground.MyForeGroundService;
+import com.vangelis.service.keepalive.OnePixelActivity;
+import com.vangelis.service.keepalive.OnePixelService;
 import com.vangelis.service.service.MyIntentService;
 import com.vangelis.service.service.MyTest1Service;
 import com.vangelis.support.util.FjLogUtil;
@@ -36,6 +40,10 @@ public class ServiceMainActivity extends AppCompatActivity implements View.OnCli
     private Button mStartIntentService;
     private Button mBindIntentService;
     private Button mBindRemoteService;
+    private Button mStartForegroundService;
+    private Button mStopForegroundService;
+    private Button mOnPixel;
+    private Button mOnPixelService;
 
     private ServiceConnection mServiceConnection;
     private ServiceConnection mRemoteServiceConnection;
@@ -61,6 +69,10 @@ public class ServiceMainActivity extends AppCompatActivity implements View.OnCli
         mStartIntentService = findViewById(R.id.startIntentService);
         mBindIntentService = findViewById(R.id.bindIntentService);
         mBindRemoteService = findViewById(R.id.bindRemoteService);
+        mStartForegroundService = findViewById(R.id.startForegroundService);
+        mStopForegroundService = findViewById(R.id.stopForegroundService);
+        mOnPixel = findViewById(R.id.one_pixel);
+        mOnPixelService = findViewById(R.id.one_pixel_service);
 
         mStartService.setOnClickListener(this);
         mStopService.setOnClickListener(this);
@@ -69,6 +81,10 @@ public class ServiceMainActivity extends AppCompatActivity implements View.OnCli
         mStartIntentService.setOnClickListener(this);
         mBindIntentService.setOnClickListener(this);
         mBindRemoteService.setOnClickListener(this);
+        mStartForegroundService.setOnClickListener(this);
+        mStopForegroundService.setOnClickListener(this);
+        mOnPixel.setOnClickListener(this);
+        mOnPixelService.setOnClickListener(this);
 
         mServiceConnection = new ServiceConnection(){
 
@@ -136,6 +152,18 @@ public class ServiceMainActivity extends AppCompatActivity implements View.OnCli
             bindService(intent,mServiceConnection,BIND_AUTO_CREATE);
         }else if(id == R.id.bindRemoteService){
             bindService(new Intent(this, MyRemoteService.class),mRemoteServiceConnection,BIND_AUTO_CREATE);
+        }else if(id == R.id.startForegroundService){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startForegroundService(new Intent(this, MyForeGroundService.class));
+            }else{
+                startService(new Intent(this,MyForeGroundService.class));
+            }
+        }else if(id == R.id.stopForegroundService){
+            stopService(new Intent(this,MyForeGroundService.class));
+        }else if(id == R.id.one_pixel){
+            startActivity(new Intent(this, OnePixelActivity.class));
+        }else if(id == R.id.one_pixel_service){
+            OnePixelService.toLiveService(this);
         }
     }
 }

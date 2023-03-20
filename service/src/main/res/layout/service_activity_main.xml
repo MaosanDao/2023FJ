@@ -35,7 +35,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="startService"
+                android:text="开启服务"
                 android:textSize="12sp" />
 
             <Button
@@ -43,7 +43,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="stopService"
+                android:text="停止服务"
                 android:textSize="12sp" />
 
 
@@ -61,7 +61,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="bindService"
+                android:text="绑定服务"
                 android:textSize="12sp" />
 
             <Button
@@ -69,7 +69,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="UnbindService"
+                android:text="解绑服务"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -85,7 +85,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="startIntentService"
+                android:text="开启IntentService"
                 android:textSize="12sp" />
 
             <Button
@@ -93,7 +93,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="bindIntentService"
+                android:text="绑定IntentService"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -109,7 +109,56 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="bindRemoteService"
+                android:text="绑定远程服务"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/startForegroundService"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="开启前台服务"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/stopForegroundService"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="停止前台服务"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/one_pixel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1像素保活"
+                android:textSize="12sp" />
+
+
+            <Button
+                android:id="@+id/one_pixel_service"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1像素保活(服务)"
                 android:textSize="12sp" />
 
         </LinearLayout>
