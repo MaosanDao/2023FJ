@@ -163,6 +163,31 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/keep_alive_service"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="使用前台进程保活"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/job_schedule"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClick"
+                android:text="JobSchdule"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

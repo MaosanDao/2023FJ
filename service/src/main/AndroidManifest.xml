@@ -3,6 +3,8 @@
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application>
         <activity android:name=".ServiceMainActivity"
             android:screenOrientation="portrait"/>
@@ -12,6 +14,9 @@
         <service android:name=".service.MyIntentService"/>
         <service android:name=".foreground.MyForeGroundService"/>
         <service android:name=".keepalive.OnePixelService"/>
+        <service android:name=".keepalive.KeepAliveService"/>
+        <service android:name=".keepalive.KeepAliveJobScheduler"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
         <service android:name=".aidl.MyRemoteService" android:process=":MyTestProcessName"
             android:exported="true">
             <intent-filter>

@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.vangelis.service.aidl.MyRemoteService;
 import com.vangelis.service.foreground.MyForeGroundService;
+import com.vangelis.service.keepalive.KeepAliveJobScheduler;
+import com.vangelis.service.keepalive.KeepAliveService;
 import com.vangelis.service.keepalive.OnePixelActivity;
 import com.vangelis.service.keepalive.OnePixelService;
 import com.vangelis.service.service.MyIntentService;
@@ -44,6 +46,7 @@ public class ServiceMainActivity extends AppCompatActivity implements View.OnCli
     private Button mStopForegroundService;
     private Button mOnPixel;
     private Button mOnPixelService;
+    private Button mKeepAliveService;
 
     private ServiceConnection mServiceConnection;
     private ServiceConnection mRemoteServiceConnection;
@@ -73,6 +76,7 @@ public class ServiceMainActivity extends AppCompatActivity implements View.OnCli
         mStopForegroundService = findViewById(R.id.stopForegroundService);
         mOnPixel = findViewById(R.id.one_pixel);
         mOnPixelService = findViewById(R.id.one_pixel_service);
+        mKeepAliveService = findViewById(R.id.keep_alive_service);
 
         mStartService.setOnClickListener(this);
         mStopService.setOnClickListener(this);
@@ -85,6 +89,7 @@ public class ServiceMainActivity extends AppCompatActivity implements View.OnCli
         mStopForegroundService.setOnClickListener(this);
         mOnPixel.setOnClickListener(this);
         mOnPixelService.setOnClickListener(this);
+        mKeepAliveService.setOnClickListener(this);
 
         mServiceConnection = new ServiceConnection(){
 
@@ -164,6 +169,10 @@ public class ServiceMainActivity extends AppCompatActivity implements View.OnCli
             startActivity(new Intent(this, OnePixelActivity.class));
         }else if(id == R.id.one_pixel_service){
             OnePixelService.toLiveService(this);
+        }else if(id == R.id.keep_alive_service){
+            startService(new Intent(this, KeepAliveService.class));
+        }else if(id == R.id.job_schedule){
+            startService(new Intent(this, KeepAliveJobScheduler.class));
         }
     }
 }
