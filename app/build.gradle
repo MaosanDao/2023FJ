@@ -54,4 +54,5 @@ dependencies {
     implementation project(':annotation')
     implementation project(':service')
     implementation project(':support')
+    implementation project(':activity')
 }

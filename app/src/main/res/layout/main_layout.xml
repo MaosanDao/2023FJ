@@ -33,6 +33,14 @@
                     android:layout_weight="1"
                     android:text="服务" />
 
+                <Button
+                    android:id="@+id/button_activity"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:onClick="onClick"
+                    android:text="Activity" />
+
 
             </LinearLayout>
 

@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
+import com.vangelis.activity.SingleTaskActivityA;
 import com.vangelis.annotation.AnnotationMainActivity;
 import com.vangelis.service.ServiceMainActivity;
 
@@ -44,6 +45,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.button_service:
                 startActivity(new Intent(this, ServiceMainActivity.class));
                 break;
+            case R.id.button_activity:
+                startActivity(new Intent(this, SingleTaskActivityA.class));
             default:
         }
     }
