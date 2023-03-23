@@ -9,5 +9,7 @@
             android:launchMode="singleTask" android:taskAffinity=".task2"/>
         <activity android:name=".SingleTaskActivityC"
             android:launchMode="singleTask" android:taskAffinity=".task2"/>
+        <activity android:name=".SingleInstanceActivity"
+            android:launchMode="singleInstance"/>
     </application>
 </manifest>
