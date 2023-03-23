@@ -10,6 +10,7 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 
 import com.vangelis.activity.SingleTaskActivityA;
+import com.vangelis.activitylifecyclecallbacks.MyActivityTestA;
 import com.vangelis.annotation.AnnotationMainActivity;
 import com.vangelis.service.ServiceMainActivity;
 
@@ -47,6 +48,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.button_activity:
                 startActivity(new Intent(this, SingleTaskActivityA.class));
+                break;
+            case R.id.button_lifecycle:
+                startActivity(new Intent(this, MyActivityTestA.class));
+                break;
             default:
         }
     }
