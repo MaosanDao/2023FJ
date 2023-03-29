@@ -3,6 +3,7 @@ package com.vangelis.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -22,12 +23,19 @@ public abstract class BaseActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(setLayoutId());
+        init();
         FjLogUtil.getInstance().d(setActivityName() + " onCreate");
     }
 
     protected abstract int setLayoutId();
 
     protected abstract String setActivityName();
+
+    public void init(){}
+
+    public void toastMsg(String msg){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected void onResume() {

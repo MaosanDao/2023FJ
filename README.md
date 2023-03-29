@@ -37,4 +37,5 @@
 | [activity](https://github.com/MaosanDao/2023FJ/tree/main/activity) | 1.启动方式                                                   | 2023年3月22日15:08:31 | 2023年3月23日11:05:49 |
 | [abstract](https://github.com/MaosanDao/2023FJ/blob/main/activity/src/main/java/com/vangelis/activity/AbstractTest.java) | 1.abstract关键字                                             | 2023年3月22日15:05:36 | 2023年3月22日16:05:40 |
 | [activityLifecycleCallbacks](https://github.com/MaosanDao/2023FJ/tree/main/activityLifecycleCallbacks) | 1.公共方法提取和简化baseactivity                             | 2023年3月23日11:28:13 | 2023年3月23日14:28:23 |
+| fragment                                                     | 1.基础知识<br />2.Activity和Fragment的联动通信<br />3.FragmentManager<br />4.FragmentTransaction | 2023年3月23日19:29:35 |                       |
 

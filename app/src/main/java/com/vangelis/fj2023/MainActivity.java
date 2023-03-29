@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import com.vangelis.activity.SingleTaskActivityA;
 import com.vangelis.activitylifecyclecallbacks.MyActivityTestA;
 import com.vangelis.annotation.AnnotationMainActivity;
+import com.vangelis.fragment.FragmentMainActivity;
 import com.vangelis.service.ServiceMainActivity;
 
 /**
@@ -24,6 +25,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private Button mAnnotation;
     private Button mService;
+    private Button mFragment;
 
 
     @Override
@@ -33,8 +35,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         mAnnotation = findViewById(R.id.button_annotation);
         mService = findViewById(R.id.button_service);
+        mFragment = findViewById(R.id.button_fragment);
         mAnnotation.setOnClickListener(this);
         mService.setOnClickListener(this);
+        mFragment.setOnClickListener(this);
     }
 
     @Override
@@ -51,6 +55,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.button_lifecycle:
                 startActivity(new Intent(this, MyActivityTestA.class));
+                break;
+            case R.id.button_fragment:
+                startActivity(new Intent(this, FragmentMainActivity.class));
                 break;
             default:
         }
