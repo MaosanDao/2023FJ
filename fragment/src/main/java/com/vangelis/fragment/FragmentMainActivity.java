@@ -1,6 +1,7 @@
 package com.vangelis.fragment;
 
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.view.View;
@@ -47,9 +48,21 @@ public class FragmentMainActivity extends BaseActivity implements View.OnClickLi
     }
 
     @Override
+    public void onAttachFragment(Fragment fragment) {
+        super.onAttachFragment(fragment);
+        FjLogUtil.getInstance().d("FragmentMainActivity onAttachFragment："+fragment.getClass().getName());
+    }
+
+    @Override
     public void onClick(View view) {//动态方式加入fragment到activity中
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        /**
+         * 可以在新建的时候，给这个fragment新增一个tag，可以通过manager进行获取
+         */
+        //Fragment fragmentTag = fragmentManager.findFragmentByTag("fragmentTag");
+
         /**
          * Fragment 的动态添加、删除等操作都需要借助于 FragmentTransaction 类来完成：
          *      add() 系列：添加 Fragment 到 Activity 界面中；
@@ -62,7 +75,7 @@ public class FragmentMainActivity extends BaseActivity implements View.OnClickLi
         if (view.getId() == R.id.add_fragment) {
             if (!isAddFragment) {
                 isAddFragment = true;
-                fragmentTransaction.add(R.id.fragment_layout, mMainFragment);
+                fragmentTransaction.add(R.id.fragment_layout, mMainFragment,"fragmentTag");
             } else {
                 toastMsg("已经添加了Fragment，不能再添加了");
             }
