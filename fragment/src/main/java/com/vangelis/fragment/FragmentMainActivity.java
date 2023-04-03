@@ -4,6 +4,7 @@ package com.vangelis.fragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.os.Bundle;
 import android.view.View;
 
 import com.vangelis.activity.BaseActivity;
@@ -13,10 +14,10 @@ import com.vangelis.support.util.FjLogUtil;
  * Function：Fragment大体使用
  * Created on 2023/3/29.
  * Comment：
- *      1.add 和 replace的区别
- *          add 不会清空之前的fragment的，但是会检测是否已经有这个fragment了
- *          replace 则会清空之前的fragment，且替换为最新的。
- *      2.其实Fragment就是一个高级的View，这个view在Activity中使用，也可以互相嵌套
+ * 1.add 和 replace的区别
+ * add 不会清空之前的fragment的，但是会检测是否已经有这个fragment了
+ * replace 则会清空之前的fragment，且替换为最新的。
+ * 2.其实Fragment就是一个高级的View，这个view在Activity中使用，也可以互相嵌套
  *
  * @author Wangpei
  */
@@ -43,14 +44,25 @@ public class FragmentMainActivity extends BaseActivity implements View.OnClickLi
     public void init() {
         super.init();
         FjLogUtil.getInstance().d("FragmentMainActivity setName");
-        mMainFragment = MainFragment.newInstance("数据哦");
+        mMainFragment = newInstance("数据哦");
         mTwoFragment = TwoFragment.newInstance();
+    }
+
+    public MainFragment newInstance(String msg) {
+        MainFragment mainFragment = new MainFragment();
+        /**
+         * 从Activity传入数据过来
+         */
+        Bundle bundle = new Bundle();
+        bundle.putString("content", msg);
+        mainFragment.setArguments(bundle);
+        return mainFragment;
     }
 
     @Override
     public void onAttachFragment(Fragment fragment) {
         super.onAttachFragment(fragment);
-        FjLogUtil.getInstance().d("FragmentMainActivity onAttachFragment："+fragment.getClass().getName());
+        FjLogUtil.getInstance().d("FragmentMainActivity onAttachFragment：" + fragment.getClass().getName());
     }
 
     @Override
@@ -75,7 +87,7 @@ public class FragmentMainActivity extends BaseActivity implements View.OnClickLi
         if (view.getId() == R.id.add_fragment) {
             if (!isAddFragment) {
                 isAddFragment = true;
-                fragmentTransaction.add(R.id.fragment_layout, mMainFragment,"fragmentTag");
+                fragmentTransaction.add(R.id.fragment_layout, mMainFragment, "fragmentTag");
             } else {
                 toastMsg("已经添加了Fragment，不能再添加了");
             }

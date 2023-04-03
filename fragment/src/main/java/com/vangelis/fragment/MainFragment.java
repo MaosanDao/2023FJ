@@ -23,20 +23,12 @@ public class MainFragment extends BaseFragment {
         return "MainFragment";
     }
 
-    public static MainFragment newInstance(String msg) {
-        MainFragment mainFragment = new MainFragment();
-        /**
-         * 从Activity传入数据过来
-         */
-        Bundle bundle = new Bundle();
-        bundle.putString("content", msg);
-        mainFragment.setArguments(bundle);
-        return mainFragment;
-    }
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /**
+         * 从Activity中获取数据，当然，是在activity中进行初始化Frag的时候传递的
+         */
         Bundle arguments = getArguments();
         FjLogUtil.getInstance().d("传递的数据为：" + arguments.getString("content"));
     }

@@ -34,6 +34,8 @@ public abstract class BaseFragment extends Fragment {
     protected abstract int setRootView();
     protected abstract String setClassName();
 
+    public void init(){}
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -43,6 +45,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        init();
         FjLogUtil.getInstance().d(setClassName()+" onViewCreated");
     }
 
