@@ -57,4 +57,5 @@ dependencies {
     implementation project(':activity')
     implementation project(':activityLifecycleCallbacks')
     implementation project(':fragment')
+    implementation project(':contentProvider')
 }

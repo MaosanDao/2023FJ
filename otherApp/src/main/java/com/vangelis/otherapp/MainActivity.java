@@ -17,7 +17,7 @@ import com.vangelis.support.util.FjLogUtil;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button mBindAppRemoteService;
     private Button mUnBindAppRemoteService;
@@ -74,5 +74,15 @@ public class MainActivity extends AppCompatActivity {
 
             }
         };
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.content_provider:
+                startActivity(new Intent(this,TestContentProviderActivity.class));
+                break;
+            default:
+        }
     }
 }

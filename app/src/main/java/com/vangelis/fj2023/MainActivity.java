@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import com.vangelis.activity.SingleTaskActivityA;
 import com.vangelis.activitylifecyclecallbacks.MyActivityTestA;
 import com.vangelis.annotation.AnnotationMainActivity;
+import com.vangelis.contentprovider.ContentProviderMainActivity;
 import com.vangelis.fragment.FragmentMainActivity;
 import com.vangelis.fragment.communication.CommIntroActivity;
 import com.vangelis.service.ServiceMainActivity;
@@ -62,6 +63,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.button_fragment_comm:
                 startActivity(new Intent(this, CommIntroActivity.class));
+                break;
+            case R.id.button_contentProvider:
+                startActivity(new Intent(this, ContentProviderMainActivity.class));
                 break;
             default:
         }

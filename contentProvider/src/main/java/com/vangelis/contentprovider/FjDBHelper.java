@@ -19,7 +19,7 @@ public class FjDBHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     public FjDBHelper(@Nullable Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
@@ -27,8 +27,8 @@ public class FjDBHelper extends SQLiteOpenHelper {
         /**
          * 创建表，并指定主键，和不为空的字段名
          */
-        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + DATABASE_NAME
-                + "(" + Constant.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + Constant.COLUMN_NAME + " VARCHAR NOT NULL);");
+        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + Constant.TABLE_NAME
+                + "(" + Constant.COLUMN_ID + " INTEGER  PRIMARY KEY AUTOINCREMENT," + Constant.COLUMN_NAME + " VARCHAR NOT NULL);");
     }
 
     @Override

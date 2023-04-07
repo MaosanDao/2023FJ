@@ -1,5 +1,7 @@
 package com.vangelis.contentprovider;
 
+import android.net.Uri;
+
 /**
  * Function：常量
  * Created on 2023/4/6.
@@ -28,4 +30,8 @@ public class Constant {
      * 主机名，URI授权的部分，唯一的标识符，用来定位ContentProvider
      */
     public static final String AUTOHORITY = "com.vangelis.fjprovider";
+
+    public static final String CONTENT_TYPE = "vnd.android.cursor.dir/user";
+    public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/user";
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTOHORITY + "/user");
 }

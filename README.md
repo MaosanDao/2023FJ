@@ -38,5 +38,5 @@
 | [abstract](https://github.com/MaosanDao/2023FJ/blob/main/activity/src/main/java/com/vangelis/activity/AbstractTest.java) | 1.abstract关键字                                             | 2023年3月22日15:05:36 | 2023年3月22日16:05:40 |
 | [activityLifecycleCallbacks](https://github.com/MaosanDao/2023FJ/tree/main/activityLifecycleCallbacks) | 1.公共方法提取和简化baseactivity                             | 2023年3月23日11:28:13 | 2023年3月23日14:28:23 |
 | [fragment](https://github.com/MaosanDao/2023FJ/tree/main/fragment) | 1.基础知识<br />2.Activity和Fragment的联动通信<br />3.FragmentManager<br />4.FragmentTransaction | 2023年3月23日19:29:35 | 2023年4月3日15:09:23  |
-| content  provider                                            | 1.基础知识<br />2.跨应用使用<br />3.Uri的基础知识<br />4.ContentResolver<br />5.ContentObserver | 2023年4月6日19:32:53  |                       |
+| content  provider                                            | 1.基础知识<br />2.跨应用使用<br />3.Uri的基础知识<br />4.ContentResolver<br />5.ContentObserver<br />6.MIME<br />7.UriMatcher<br />8.ContentUris | 2023年4月6日19:32:53  |                       |
 
